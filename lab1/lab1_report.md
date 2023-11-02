@@ -38,22 +38,31 @@ minikube start
 ## 3. Создание Pod 
 Далее я создал .yaml файл для развертывания **deployment**, в качестве образа использовал **hashicorp/vault**, разворачиваем:
 ```kubectl apply -f my.vaultpod.yaml```
+![manifest](img/6.PNG) 
 
 Для создания сервиса, использовал команду
 ```
 minikube kubectl -- expose pod vault --type=NodePort --port=8200
 ```
-
+![service](img/7.PNG) 
 Перенаправляем порты для доступа к контейнеру сервиса:
 ```
 minikube kubectl -- port-forward service/vault-deployment 8200:8200
 ```
+![port_forward](img/8.PNG)
 
 Запускаем сервис в браузере:
+![run_browser](img/9.PNG)
 
 # 4. Получение токена:
 Чтобы получить токен для доступа к сервису, смотрим логи **pod'а***
 ``` kubectl logs vault-deployment-b467d4858-gfs8q```
+![token](img/10.PNG)
+
+Вводим **токен** и получаем доступ к контейнеру
+![inside](img/11.PNG)
+
+
 
 
 
