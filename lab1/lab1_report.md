@@ -71,7 +71,7 @@ minikube kubectl -- port-forward service/vault-deployment 8200:8200
 
 ## 5. Схема организации контейеров и сервисов:
 
-![vault_scheme](img/scheme.PNG)
+![vault_scheme](img/scheme.png)
 
 
 
