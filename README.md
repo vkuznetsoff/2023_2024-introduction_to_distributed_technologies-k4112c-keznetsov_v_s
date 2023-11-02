@@ -1,1 +1,1 @@
-# 2023_2024-introduction_to_distributed_technologies-k4112c-keznetsov_v_s
+# 2023_2024-introduction_to_distributed_technologies-k4112c-kuznetsov_v_s
