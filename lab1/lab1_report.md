@@ -14,9 +14,8 @@ Date of finished:
 # Ход работы
 
 ## 1. Установка окружения:
-Я установил Docker на свой компьютер, скачав установочный файл
-
-Я установил WSL, так как разворачиваю кластер на машине с Windows 10.
+Я установил Docker на свой компьютер, скачав установочный файл.
+Установил WSL, так как разворачиваю кластер на машине с Windows 10.
 ```wsl --install```
 
 После этого я скачал установщик minickube.
@@ -27,16 +26,14 @@ if ($oldPath.Split(';') -inotcontains 'C:\minikube'){
   [Environment]::SetEnvironmentVariable('Path', $('{0};C:\minikube' -f $oldPath), [EnvironmentVariableTarget]::Machine)
 }
 ```
-
 Также мне потребовалось установить активный контекст Докера через команду:
 ```docker context use default```
-
-
 
 ## 2. Запуск minikube
 ```
 minikube start
 ```
+![minikube](./img/1.png)
 
 ## 3. Создание Pod 
 Далее я создал .yaml файл для развертывания **deployment**, в качестве образа использовал **hashicorp/vault**, разворачиваем:
