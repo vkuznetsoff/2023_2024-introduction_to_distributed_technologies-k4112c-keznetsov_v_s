@@ -33,7 +33,7 @@ if ($oldPath.Split(';') -inotcontains 'C:\minikube'){
 ```
 minikube start
 ```
-![minikube](./img/1.png)
+![minikube](lab1/img/1.PNG) 
 
 ## 3. Создание Pod 
 Далее я создал .yaml файл для развертывания **deployment**, в качестве образа использовал **hashicorp/vault**, разворачиваем:
