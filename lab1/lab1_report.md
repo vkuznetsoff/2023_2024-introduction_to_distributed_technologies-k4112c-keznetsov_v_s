@@ -6,7 +6,7 @@ Group: K4112C\
 Author: Kuznetsov Vyacheslav Sergeevich \
 Lab: Lab1 \
 Date of create: 02.11.2023 \
-Date of finished: 
+Date of finished:  02.11.2023 \
 
 # Лабораторная работа №1 "Установка Docker и Minikube, мой первый манифест."
 ## Цель работы: Ознакомиться с инструментами Minikube и Docker, развернуть свой первый "под".
