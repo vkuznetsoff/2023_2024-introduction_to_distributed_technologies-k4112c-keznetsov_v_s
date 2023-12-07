@@ -6,13 +6,14 @@ Group: K4112C\
 Author: Kuznetsov Vyacheslav Sergeevich \
 Lab: Lab2 \
 Date of create: 06.12.2023 \
-Date of finished:   \
+Date of finished: \
 
 # Лабораторная работа №3 "Сертификаты и "секреты" в Minikube, безопасное хранение данных."
 
 # Ход работы
 
 ## 1. Cоздание манифеста для Config Map:
+
 Создаем ConfigMap декаларативным способом через создание манифеста, в котором прописываем
 `kind: ConfigMap` и в поле `data` прописываем пары ключ-значение для того, чтобы в дальнейшем передать эти данные в манифест нашего Deployment:
 `apiVersion: v1
@@ -21,98 +22,75 @@ metadata:
   name: app-config
 data:
   username: 'VKuznetsov'
-  company_name: 'ITMO` 
+  company_name: 'ITMO`
 
 Создадим ConfigMap c помощью команды `kubectl apply -f configmap.yaml` и посмотрим. что получилось:
-![configmap](img/1.PNG) 
+![configmap](img/1.PNG)
 
 ## 2. Cоздание манифеста для Deployment:
-Для развертывания `Deployment` я взял за основу манифест из `lab2` ![appyaml](app.yaml) , в котором в разделе описания переменных окружения `env` указал, что значения для переменных брать из `configMap` по соответсвующим ключам. 
 
-## 3. Разворачиваем  Deployment 
+Для развертывания `Deployment` я взял за основу манифест из `lab2` ![appyaml](app.yaml) , в котором в разделе описания переменных окружения `env` указал, что значения для переменных брать из `configMap` по соответсвующим ключам.
 
-```kubectl apply -f app.yaml```
+## 3. Разворачиваем Deployment
 
-![manifest](img/2.PNG) 
+`kubectl apply -f app.yaml`
+
+![manifest](img/2.PNG)
 
 Убедимся, что переменные переданны корректно:
+
 - Проверим созданные `pod'ы`:
-![pods](img/3.PNG) 
+  
+  ![pods](img/3.PNG)
 
 - С помощью команды `exec`, чтобы посмотреть содержимое запущенных подов:
-![podsexec](img/4.PNG)
+  
+  ![podsexec](img/4.PNG)
 
 Переменные REACT_APP_USERNAME и REACT_APP_COMPANY_NAME переданы корректно!
 
 ## 4. Проверка работоспособности Сервиса:
+
 Перенаправим порты и запустим сервис в браузере
+
 ![service](img/6.PNG)
 
 ГОТОВО!
+
 ![localhost](img/7.PNG)
 
 ## 5. Создание TLS сертификата:
+
 Создаем сертификат и ключ с помощью `openssl`:
 ![openssl](img/8.PNG)
 
 ## 6. Создание "секрета" с TLS сертификатом:
-Создаем секрет с помощью команды 
+
+Создаем секрет с помощью команды
 ` kubectl create secret tls sertificate --cert="tsl_cert.crt" --key="tsl_key.key"`
- ![secret](9.png)
+![secret](9.PNG)
 
 ## 7. Запуск Ingress:
- - Добавим Ingress контроллера в кластер Minikube
-![ingress](img/5.PNG)
 
- - Сформируем Ingress для нашего сервиса с помощью манифеста ![ingressymal](ingress.yaml)
- ![ingressscreen](img/10.PNG)
+- Добавим Ingress контроллера в кластер Minikube
+- 
+  ![ingress](img/5.PNG)
 
+- Сформируем Ingress для нашего сервиса с помощью  ![манифеста](https://github.com/vkuznetsoff/2023_2024-introduction_to_distributed_technologies-k4112c-kuznetsov_v_s/blob/master/ingress.yaml)
+- 
+  ![ingressscreen](img/10.PNG)
 
- 
+## 8. Запуск сервиса через host:
 
+Я прописал в файлe `etc\host` доступ для хоста сервиса: `127.0.0.1 lab3kuznetsov.info` (Под Windows).
+Далее переходим в браузере по адресу моего сервиса и видим, что сервис работает:
 
-Для создания сервиса, использовал команду
-```
- minikube kubectl -- expose deployment frontend-app --type=NodePort --port=3000
-```
+![browser](img/11.PNG)
 
-![service](img/3.PNG) 
+Посмотрим сертификат:
 
-Перенаправляем порты для доступа к контейнеру сервиса:
-```
-minikube kubectl -- port-forward service/frontend-app 3000:3000
-```
-![port_forward](img/4.PNG)
+![cert](img/12.PNG)
 
-Запускаем сервис в браузере:
+## 9. Схема организации контейеров и сервисов:
 
-![run_browser](img/5.PNG)
-
-![showin_browser](img/6.PNG)
-
-# 4. Проверка **pod'ов**:
-Проверим работают ли поды
-
-![pods](img/7.PNG)
-
-# 5. ВЫВОД:
-Переменные не изменяются, так как они создавались при создании подов и не переопределяются. 
-Имя контейнера может меняться, так как у нас запущено два **pod'a** - в браузере мы видим имя одной из реплик.
-
-#6. СМОТРИМ ЛОГИ:
-![logs](img/7.PNG)
-
-Они идентичны!
-
-
-## 5. Схема организации контейеров и сервисов:
-
-![scheme](img/9.png)
-
-
-
-
-
-
-
-
+![scheme](img/14.png)
