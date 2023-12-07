@@ -40,9 +40,11 @@ data:
 Убедимся, что переменные переданны корректно:
 
 - Проверим созданные `pod'ы`:
+  
   ![pods](img/3.PNG)
 
 - С помощью команды `exec`, чтобы посмотреть содержимое запущенных подов:
+  
   ![podsexec](img/4.PNG)
 
 Переменные REACT_APP_USERNAME и REACT_APP_COMPANY_NAME переданы корректно!
@@ -50,9 +52,11 @@ data:
 ## 4. Проверка работоспособности Сервиса:
 
 Перенаправим порты и запустим сервис в браузере
+
 ![service](img/6.PNG)
 
 ГОТОВО!
+
 ![localhost](img/7.PNG)
 
 ## 5. Создание TLS сертификата:
@@ -64,23 +68,27 @@ data:
 
 Создаем секрет с помощью команды
 ` kubectl create secret tls sertificate --cert="tsl_cert.crt" --key="tsl_key.key"`
-![secret](9.png)
+![secret](9.PNG)
 
 ## 7. Запуск Ingress:
 
 - Добавим Ingress контроллера в кластер Minikube
+- 
   ![ingress](img/5.PNG)
 
-- Сформируем Ingress для нашего сервиса с помощью манифеста ![ingressymal](ingress.yaml)
+- Сформируем Ingress для нашего сервиса с помощью  ![манифеста](https://github.com/vkuznetsoff/2023_2024-introduction_to_distributed_technologies-k4112c-kuznetsov_v_s/blob/master/ingress.yaml)
+- 
   ![ingressscreen](img/10.PNG)
 
 ## 8. Запуск сервиса через host:
 
 Я прописал в файлe `etc\host` доступ для хоста сервиса: `127.0.0.1 lab3kuznetsov.info` (Под Windows).
 Далее переходим в браузере по адресу моего сервиса и видим, что сервис работает:
+
 ![browser](img/11.PNG)
 
 Посмотрим сертификат:
+
 ![cert](img/12.PNG)
 
 ## 9. Схема организации контейеров и сервисов:
