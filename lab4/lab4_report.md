@@ -50,6 +50,7 @@ Date of finished:   \
 - создаем ![ConfigMap](https://github.com/vkuznetsoff/2023_2024-introduction_to_distributed_technologies-k4112c-kuznetsov_v_s/blob/main/lab4/config.map.yaml) с переменными, манифест для ![Deployment](https://github.com/vkuznetsoff/2023_2024-introduction_to_distributed_technologies-k4112c-kuznetsov_v_s/blob/main/lab4/deployment.yaml) и ![сервиса](https://github.com/vkuznetsoff/2023_2024-introduction_to_distributed_technologies-k4112c-kuznetsov_v_s/blob/main/lab4/service.yaml).
 
 Разворачиваем все это:
+
 ![deployment](img/9.PNG)
 
 ## 6. Проверим созданные поды:
