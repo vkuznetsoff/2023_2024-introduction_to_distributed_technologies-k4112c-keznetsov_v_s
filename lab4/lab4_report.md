@@ -40,14 +40,14 @@ Date of finished:   \
 
 ![label](img/4.PNG)
 
-- создадим config-файл  ![calico.congig.yaml]()  для `CalicoAPIConfig':
+- создадим config-файл  ![calico.config.yaml](https://github.com/vkuznetsoff/2023_2024-introduction_to_distributed_technologies-k4112c-kuznetsov_v_s/blob/main/lab4/calico.config.yaml)  для `CalicoAPIConfig':
 
 ![config](img/7.PNG)
 
-- используем ![манифест]() для запуска Calico:
+- используем ![манифест](https://github.com/vkuznetsoff/2023_2024-introduction_to_distributed_technologies-k4112c-kuznetsov_v_s/blob/main/lab4/ippool.yaml) для запуска Calico:
 ![ippool](img/8.PNG)
 
-- создаем ![ConfigMap]() с переменными, манифест для ![Deployment]() и ![сервиса]().
+- создаем ![ConfigMap](https://github.com/vkuznetsoff/2023_2024-introduction_to_distributed_technologies-k4112c-kuznetsov_v_s/blob/main/lab4/config.map.yaml) с переменными, манифест для ![Deployment](https://github.com/vkuznetsoff/2023_2024-introduction_to_distributed_technologies-k4112c-kuznetsov_v_s/blob/main/lab4/deployment.yaml) и ![сервиса](https://github.com/vkuznetsoff/2023_2024-introduction_to_distributed_technologies-k4112c-kuznetsov_v_s/blob/main/lab4/service.yaml).
 
 Разворачиваем все это:
 ![deployment](img/9.PNG)
