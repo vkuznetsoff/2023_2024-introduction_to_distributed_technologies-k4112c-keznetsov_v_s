@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: lab4-config
+data:
+  REACT_APP_USERNAME: "VKuznetsoff"
+  REACT_APP_COMPANY_NAME: "ITMO"
