@@ -72,7 +72,7 @@ Date of finished:   \
 
 ## 10. Схема организации контейеров и сервисов:
 
-![scheme](img/14.png)
+![scheme](img/14.PNG)
 
 
 
