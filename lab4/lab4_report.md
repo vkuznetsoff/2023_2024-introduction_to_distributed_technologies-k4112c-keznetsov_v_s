@@ -40,7 +40,7 @@ Date of finished:   \
 
 ![label](img/4.PNG)
 
-- создадим config-файл  ![calico.config.yaml](https://github.com/vkuznetsoff/2023_2024-introduction_to_distributed_technologies-k4112c-kuznetsov_v_s/blob/main/lab4/calico.config.yaml)  для `CalicoAPIConfig':
+- создадим config-файл  ![calico.config.yaml](https://github.com/vkuznetsoff/2023_2024-introduction_to_distributed_technologies-k4112c-kuznetsov_v_s/blob/main/lab4/calico.config.yaml)  для `CalicoAPIConfig`:
 
 ![config](img/7.PNG)
 
